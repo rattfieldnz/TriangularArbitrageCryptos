@@ -13,6 +13,10 @@ from pathlib import Path
 dotenv_path = Path('.env')    # Rename .env.example to .env, then update API keys as appropriate.
 load_dotenv(dotenv_path=dotenv_path)
 
+INVESTMENT_AMOUNT_DOLLARS = 100
+MIN_PROFIT_DOLLARS = 0.5
+BROKERAGE_PER_TRANSACTION_PERCENT = 0.2
+
 exchange = ccxt.gate({
     "apiKey": os.getenv('API_KEY'),
     "secret": os.getenv('API_SECRET')
@@ -185,10 +189,6 @@ def perform_triangular_arbitrage(scrip1, scrip2, scrip3, arbitrage_type,initial_
         
         # UNCOMMENT THIS LINE TO PLACE THE ORDERS
         #place_trade_orders(arbitrage_type, scrip1, scrip2, scrip3, initial_investment, scrip_prices)
-
-INVESTMENT_AMOUNT_DOLLARS = 100
-MIN_PROFIT_DOLLARS = 0.5
-BROKERAGE_PER_TRANSACTION_PERCENT = 0.2
 
 # UNCOMMENT THE WHILE LOOP TO RUN THIS LOOP CONTINUOUSLY
 #while(1):
