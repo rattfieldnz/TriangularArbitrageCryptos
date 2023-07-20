@@ -24,6 +24,7 @@ exchange = ccxt.gate({
     "secret": os.getenv('API_SECRET')
 })
 
+# Visit https://github.com/ccxt/ccxt/issues/11953#issuecomment-1037234557 for reference.
 bool(USE_TESTNET) === True ? exchange.set_sandbox_mode(True) : exchange.set_sandbox_mode(False)
 
 markets = exchange.fetchMarkets()
