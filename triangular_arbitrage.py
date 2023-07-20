@@ -25,7 +25,7 @@ load_dotenv(dotenv_path=dotenv_path)
 # In[2]:
 
 
-exchange = ccxt.wazirx({
+exchange = ccxt.gate({
     "apiKey": os.getenv('API_KEY'),
     "secret": os.getenv('API_SECRET')
 })
