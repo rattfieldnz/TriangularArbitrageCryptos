@@ -17,10 +17,14 @@ INVESTMENT_AMOUNT_DOLLARS = 100
 MIN_PROFIT_DOLLARS = 0.5
 BROKERAGE_PER_TRANSACTION_PERCENT = 0.2
 
+USE_TESTNET = True
+
 exchange = ccxt.gate({
     "apiKey": os.getenv('API_KEY'),
     "secret": os.getenv('API_SECRET')
 })
+
+bool(USE_TESTNET) === True ? exchange.set_sandbox_mode(True) : exchange.set_sandbox_mode(False)
 
 markets = exchange.fetchMarkets()
 market_symbols = [market['symbol'] for market in markets]
